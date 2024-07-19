@@ -2,7 +2,7 @@ use anyhow::{Context as _, Result};
 use clap::Parser;
 use rusb::{Context, UsbContext};
 use tecdrivers::{
-    liu::{liu7000::LIU7000, LIU},
+    liu::{liust700::LIUST700, LIU},
     USBDevice,
 };
 use twilight_gateway::{Event, Intents, Shard, ShardId};
@@ -26,7 +26,7 @@ async fn main() -> Result<()> {
 
     let ctx = Context::new()?;
 
-    let liu = LIU7000::find(&ctx.devices()?, true)
+    let liu = LIUST700::find(&ctx.devices()?, true)
         .context("failed to get device")?
         .context("device not found")?;
 

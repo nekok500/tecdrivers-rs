@@ -1,7 +1,7 @@
 use anyhow::{Context as _l, Result};
 use clap::Parser;
 use rusb::{Context, UsbContext};
-use tecdrivers::{liu::liu7000::LIU7000, liu::LIU, USBDevice as _};
+use tecdrivers::{liu::liust700::LIUST700, liu::LIU, USBDevice as _};
 
 #[derive(Parser)]
 struct Args {
@@ -12,7 +12,7 @@ struct Args {
 fn main() -> Result<()> {
     let args = Args::parse();
 
-    let liu = LIU7000::find(&Context::new()?.devices()?, true)?.context("device not found")?;
+    let liu = LIUST700::find(&Context::new()?.devices()?, true)?.context("device not found")?;
 
     liu.write(&args.text)?;
 

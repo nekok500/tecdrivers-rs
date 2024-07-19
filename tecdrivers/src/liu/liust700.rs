@@ -45,11 +45,11 @@ static VID: u16 = 0x08a6;
 static PID: u16 = 0x0017;
 static TIMEOUT: Duration = Duration::from_secs(1);
 
-pub struct LIU7000 {
+pub struct LIUST700 {
     handle: DeviceHandle<Context>,
 }
 
-impl USBDevice for LIU7000 {
+impl USBDevice for LIUST700 {
     fn find(list: &rusb::DeviceList<Context>, reset: bool) -> Result<Option<Box<Self>>> {
         let Some(device) = list.iter().find(|d| {
             // TODO: error handling
@@ -63,7 +63,7 @@ impl USBDevice for LIU7000 {
     }
 }
 
-impl LIU for LIU7000 {
+impl LIU for LIUST700 {
     fn init(handle: DeviceHandle<Context>, reset: bool) -> Result<Box<Self>> {
         if reset {
             handle.reset()?;
