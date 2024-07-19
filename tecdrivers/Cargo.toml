@@ -6,7 +6,7 @@ edition.workspace = true
 authors.workspace = true
 
 [dependencies]
-anyhow = { default-features = false, version = "1.0.86" }
+anyhow = { default-features = false, version = "1.0.86", features = ["std"] }
 encoding_rs = { default-features = false, version = "0.8.34", features = [
   "alloc",
 ] }
