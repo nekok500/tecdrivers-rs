@@ -4,6 +4,8 @@ version = "0.1.0"
 description = "東芝テック社のPOS周辺機器をクロスプラットフォームでRustから操作できるようにします。"
 edition.workspace = true
 authors.workspace = true
+license.workspace = true
+repository.workspace = true
 
 [dependencies]
 anyhow = { default-features = false, version = "1.0.86", features = ["std"] }
