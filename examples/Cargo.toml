@@ -1,0 +1,22 @@
+[package]
+name = "examples"
+version = "0.1.0"
+edition.workspace = true
+
+[dependencies]
+tecdrivers = { path = "../tecdrivers" }
+anyhow = "1.0.86"
+clap = { version = "4.5.9", features = ["derive", "env"] }
+rusb = "0.9.4"
+tokio = { version = "1.38.1", features = ["rt-multi-thread", "rt", "macros"] }
+tracing = "0.1.40"
+tracing-subscriber = "0.3.18"
+twilight-gateway = "0.15.4"
+
+[[example]]
+name = "discord"
+path = "discord.rs"
+
+[[example]]
+name = "write"
+path = "write.rs"

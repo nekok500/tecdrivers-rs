@@ -1,0 +1,8 @@
+[workspace]
+members = ["examples", "tecdrivers"]
+resolver = "2"
+
+[workspace.package]
+edition = "2021"
+authors = ["nekok500"]
+license = "MIT"

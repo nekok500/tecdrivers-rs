@@ -1,0 +1,18 @@
+[package]
+name = "tecdrivers"
+version = "0.1.0"
+edition.workspace = true
+
+[dependencies]
+anyhow = { default-features = false, version = "1.0.86" }
+encoding_rs = { default-features = false, version = "0.8.34", features = [
+  "alloc",
+] }
+rusb = { default-features = false, version = "0.9.4" }
+tokio = { version = "1.38.1", default-features = false, features = [
+  "rt-multi-thread",
+  "rt",
+  "macros",
+] }
+tracing = { default-features = false, version = "0.1.40" }
+tracing-subscriber = { default-features = false, version = "0.3.18" }
