@@ -7,7 +7,7 @@ pub trait LIU {
     /// USBデバイスを初期化する。
     fn init(handle: DeviceHandle<Context>, reset: bool) -> Result<Box<Self>>;
     /// カスタマーディスプレイに文字列を書き込む。
-    fn write(self: &Self, text: &str) -> Result<()>;
+    fn write(&self, text: &str) -> Result<()>;
     /// カスタマーディスプレイの表示をすべてクリアする。
-    fn clear(self: &Self) -> Result<()>;
+    fn clear(&self) -> Result<()>;
 }

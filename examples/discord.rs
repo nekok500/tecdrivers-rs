@@ -81,7 +81,7 @@ async fn main() -> Result<()> {
                                 }
                             ))?;
 
-                            if let Some(activity) = i.activities.get(0) {
+                            if let Some(activity) = i.activities.first() {
                                 if let (Some(state), Some(details)) =
                                     (activity.state.clone(), activity.details.clone())
                                 {
