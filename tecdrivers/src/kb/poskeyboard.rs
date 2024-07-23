@@ -57,7 +57,7 @@ impl USBPOSKeyboard {
     /// * `pos` - キーの位置
     /// * `key` - キーコード
     /// * `flags` - キーの修飾キー
-    pub fn set_key(&self, pos: u8, key: u8, flags: KeyFlags) -> Result<()> {
+    pub fn set_key(&self, pos: u8, key: u8, flags: &KeyFlags) -> Result<()> {
         if !POSKEYS.contains(&pos) {
             bail!("invalid key position");
         }
