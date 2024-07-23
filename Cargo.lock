@@ -1054,7 +1054,7 @@ dependencies = [
 
 [[package]]
 name = "tecdrivers"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "anyhow",
  "bitflags 2.6.0",

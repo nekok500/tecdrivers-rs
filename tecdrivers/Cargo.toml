@@ -1,6 +1,6 @@
 [package]
 name = "tecdrivers"
-version = "0.1.0"
+version = "0.1.1"
 description = "東芝テック社のPOS周辺機器をクロスプラットフォームでRustから操作できるようにします。"
 edition.workspace = true
 authors.workspace = true
