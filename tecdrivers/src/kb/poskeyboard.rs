@@ -66,7 +66,7 @@ impl USBPOSKeyboard {
         let num = self.handle.read_control(
             REQUEST_TYPE,
             REQUEST,
-            (pos as u16) | flags.bits(),
+            flags.to_payload(pos),
             key as u16,
             &mut [0u8; 1],
             TIMEOUT,

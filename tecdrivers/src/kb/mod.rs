@@ -5,13 +5,19 @@ use rusb::{Context, DeviceHandle};
 pub mod poskeyboard;
 
 bitflags! {
-    pub struct KeyFlags: u16 {
-        const LEFT_SHIFT =  0b00000001_00000000;
-        const RIGHT_SHIFT = 0b00000010_00000000;
-        const LEFT_ALT =    0b00000100_00000000;
-        const RIGHT_ALT =   0b00001000_00000000;
-        const LEFT_CTRL =   0b00010000_00000000;
-        const RIGHT_CTRL =  0b00100000_00000000;
+    pub struct KeyFlags: u8 {
+        const LEFT_SHIFT =  1 << 0;
+        const RIGHT_SHIFT = 1 << 1;
+        const LEFT_ALT =    1 << 2;
+        const RIGHT_ALT =   1 << 3;
+        const LEFT_CTRL =   1 << 4;
+        const RIGHT_CTRL =  1 << 5;
+    }
+}
+
+impl KeyFlags {
+    pub fn to_payload(&self, key: u8) -> u16 {
+        (self.bits() as u16) << 8 | key as u16
     }
 }
 
@@ -26,11 +32,14 @@ mod tests {
 
     #[test]
     fn check_bit_flags() {
-        assert_eq!(73 | KeyFlags::LEFT_SHIFT.bits(), 0x149);
-        assert_eq!(63 | KeyFlags::LEFT_SHIFT.bits(), 0x13f);
-        assert_eq!(28 | KeyFlags::LEFT_SHIFT.bits(), 0x11c);
-        assert_eq!(8 | KeyFlags::LEFT_ALT.bits(), 0x408);
+        assert_eq!(KeyFlags::LEFT_SHIFT.to_payload(73), 0x149);
+        assert_eq!(KeyFlags::LEFT_SHIFT.to_payload(63), 0x13f);
+        assert_eq!(KeyFlags::LEFT_SHIFT.to_payload(28), 0x11c);
+        assert_eq!(KeyFlags::LEFT_ALT.to_payload(8), 0x408);
 
-        assert_eq!(0x408 | KeyFlags::LEFT_ALT.bits(), 0x408);
+        assert_eq!(
+            (KeyFlags::LEFT_CTRL | KeyFlags::LEFT_ALT).to_payload(107),
+            0x146b
+        );
     }
 }
