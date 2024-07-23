@@ -25,3 +25,7 @@ path = "discord.rs"
 [[example]]
 name = "write"
 path = "write.rs"
+
+[[example]]
+name = "setkeys"
+path = "setkeys.rs"

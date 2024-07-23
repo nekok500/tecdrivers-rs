@@ -9,6 +9,7 @@ repository.workspace = true
 
 [dependencies]
 anyhow = { default-features = false, version = "1.0.86", features = ["std"] }
+bitflags = "2.6.0"
 encoding_rs = { default-features = false, version = "0.8.34", features = [
   "alloc",
 ] }

@@ -7,6 +7,7 @@
 use anyhow::Result;
 use rusb::{Context, DeviceList};
 
+pub mod kb;
 pub mod liu;
 
 pub trait USBDevice {
