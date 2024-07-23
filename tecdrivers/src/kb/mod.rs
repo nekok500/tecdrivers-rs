@@ -19,3 +19,18 @@ pub trait POSKB {
     /// USBデバイスを初期化する。
     fn init(handle: DeviceHandle<Context>, reset: bool) -> Result<Box<Self>>;
 }
+
+#[cfg(test)]
+mod tests {
+    use crate::kb::KeyFlags;
+
+    #[test]
+    fn check_bit_flags() {
+        assert_eq!(73 | KeyFlags::LEFT_SHIFT.bits(), 0x149);
+        assert_eq!(63 | KeyFlags::LEFT_SHIFT.bits(), 0x13f);
+        assert_eq!(28 | KeyFlags::LEFT_SHIFT.bits(), 0x11c);
+        assert_eq!(8 | KeyFlags::LEFT_ALT.bits(), 0x408);
+
+        assert_eq!(0x408 | KeyFlags::LEFT_ALT.bits(), 0x408);
+    }
+}
