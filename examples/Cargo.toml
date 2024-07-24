@@ -29,3 +29,7 @@ path = "write.rs"
 [[example]]
 name = "setkeys"
 path = "setkeys.rs"
+
+[[example]]
+name = "pointcard"
+path = "pointcard.rs"
